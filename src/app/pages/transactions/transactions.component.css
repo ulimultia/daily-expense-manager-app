@@ -1,0 +1,50 @@
+.period-tabs{
+    width: 100%;
+}
+
+.inflow-outflow-report{
+    margin: 20px 30px;
+}
+
+.inflow-outflow-report table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    table-layout: fixed;
+}
+
+.inflow-outflow-report table tr{
+    width: 100%;
+}
+
+.inflow{
+    color: #039be5;
+}
+
+.outflow{
+    color: #e51c23;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.total-balance{
+    font-size: 1.2rem;
+}
+
+.amount{
+    width: 25%;
+    text-align: right;
+}
+
+.report-link{
+    text-align: center;
+}
+
+.report-link a{
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+.transaction-separator{
+    height: 35px;
+    background-color: whitesmoke;
+}

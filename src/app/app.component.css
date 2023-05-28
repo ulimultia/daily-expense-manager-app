@@ -1,0 +1,8 @@
+.container{
+    width: auto;
+    height: 100%;
+}
+
+.container .content{
+    margin: 3rem 20rem;
+}

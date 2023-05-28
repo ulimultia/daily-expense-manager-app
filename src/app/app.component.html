@@ -1,1 +1,12 @@
-<mat-slide-toggle>Daily Expense Manager!</mat-slide-toggle>
+<div class="container">
+    <app-sidenav [isOpen]="isSideNavOpen">
+        <div slot="navitems">testing</div>
+    
+        <div slot="content">
+            <app-toolbar (menuClickEvent)="openSideNav()"></app-toolbar>
+            <div class="content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </app-sidenav>
+</div>
