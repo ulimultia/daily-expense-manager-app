@@ -1,0 +1,23 @@
+<div *ngFor="let txn of loadTxn">
+  <!-- <mat-card class="mat-elevation-z4"> -->
+  <mat-card class="card-history mat-elevation-z4">
+    <mat-grid-list cols="12">
+      <mat-grid-tile colspan="2">
+        <img mat-card-sm-image class="img-history" src=".\assets\iconsImg\loss.png" alt="" *ngIf="txn.type === 'expense'">
+        <img mat-card-sm-image class="img-history" src=".\assets\iconsImg\profits.png" alt="" *ngIf="txn.type === 'income'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5">
+        <mat-card-header>
+          <mat-card-title>{{txn.category}}</mat-card-title>
+          <mat-card-subtitle>{{txn.date}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5">
+        <mat-card-content>
+          <h3 style="color: rgb(0, 177, 153);" *ngIf="txn.type === 'income'">Rp {{txn.nominal}},-</h3>
+          <h3 style="color: rgb(167, 6, 1);" *ngIf="txn.type === 'expense'">Rp {{txn.nominal}},-</h3>
+        </mat-card-content>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+</div>
