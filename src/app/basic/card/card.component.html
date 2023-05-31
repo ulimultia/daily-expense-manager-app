@@ -8,14 +8,14 @@
       </mat-grid-tile>
       <mat-grid-tile colspan="5">
         <mat-card-header>
-          <mat-card-title>{{txn.category}}</mat-card-title>
+          <mat-card-title><h4><strong>{{txn.category}}</strong></h4></mat-card-title>
           <mat-card-subtitle>{{txn.date}}</mat-card-subtitle>
         </mat-card-header>
       </mat-grid-tile>
       <mat-grid-tile colspan="5">
         <mat-card-content>
-          <h3 style="color: rgb(0, 177, 153);" *ngIf="txn.type === 'income'">Rp {{txn.nominal}},-</h3>
-          <h3 style="color: rgb(167, 6, 1);" *ngIf="txn.type === 'expense'">Rp {{txn.nominal}},-</h3>
+          <h3 style="color: rgb(0, 177, 153);" *ngIf="txn.type === 'income'">Rp {{txn.nominal|currency:'IDR':''}}</h3>
+          <h3 style="color: rgb(167, 6, 1);" *ngIf="txn.type === 'expense'">Rp {{txn.nominal|currency:'IDR':''}}</h3>
         </mat-card-content>
       </mat-grid-tile>
     </mat-grid-list>
