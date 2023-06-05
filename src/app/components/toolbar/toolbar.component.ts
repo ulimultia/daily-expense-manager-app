@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import {MatDialog } from '@angular/material/dialog';
+import { TransactionFormComponent } from '../transaction/transaction-form/transaction-form.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,5 +12,15 @@ export class ToolbarComponent {
 
   menuClick(){
     this.menuClickEvent.emit()
+  }
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    const dialogRef = this.dialog.open(TransactionFormComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

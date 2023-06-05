@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-export type InputType = "text" | "number" | "category"
+export type InputType = "text" | "number" | "category" | "date"
+export type InputAppearance = "fill" | "outline"
 
 @Component({
   selector: 'app-input',
@@ -10,4 +11,8 @@ export type InputType = "text" | "number" | "category"
 export class InputComponent {
   @Input() type: InputType = "text";
   @Input() label: string = "";
+  @Input() value: any = null;
+  @Input() placeholder: string = "";
+  @Input() min: number = 0;
+  @Input() appearance: InputAppearance = "outline"
 }

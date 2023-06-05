@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Category } from '../transaction-history/transaction-history.component';
+import { Category } from '../../models/Transaction';
 
 const icons = {
   'Transportation': '../../../assets/icons/ic_category_transport.png',

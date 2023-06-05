@@ -11,9 +11,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
-import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 import { IconComponent } from './icon/icon.component';
 import { SharedModule } from '../shared/shared.module';
+import { TransactionHistoryDetailComponent } from './transaction/transaction-history-detail/transaction-history-detail.component';
+import { TransactionHistoryHeaderComponent } from './transaction/transaction-history-header/transaction-history-header.component';
+import { TransactionFormComponent } from './transaction/transaction-form/transaction-form.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -21,8 +26,10 @@ import { SharedModule } from '../shared/shared.module';
     InputComponent,
     ToolbarComponent,
     SidenavComponent,
-    TransactionHistoryComponent,
     IconComponent,
+    TransactionHistoryDetailComponent,
+    TransactionHistoryHeaderComponent,
+    TransactionFormComponent,
   ],
   imports: [
     CommonModule,
@@ -33,15 +40,19 @@ import { SharedModule } from '../shared/shared.module';
     MatButtonModule,
     MatSidenavModule,
     MatTabsModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports:[
     CardComponent,
     InputComponent,
     ToolbarComponent,
     SidenavComponent,
-    TransactionHistoryComponent,
-    MatTabsModule
+    MatTabsModule,
+    TransactionHistoryDetailComponent,
+    TransactionHistoryHeaderComponent
   ]
 })
 export class ComponentsModule { }

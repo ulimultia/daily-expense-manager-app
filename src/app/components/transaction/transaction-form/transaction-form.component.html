@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Add Transaction</h2>
+<mat-dialog-content class="mat-typography">
+  <app-input type="number" label="Amount" [value]="0" [min]="0" placeholder="Amount"></app-input>
+  <app-input type="text" label="Description" placeholder="Description"></app-input>
+  <app-input type="date" label="Date"></app-input>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button color="primary" [mat-dialog-close]="true">Save</button>
+</mat-dialog-actions>
+
