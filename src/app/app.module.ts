@@ -5,10 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ComponentsModule } from './components/components.module';
-import { TransactionsComponent } from './pages/transactions/transactions.component';
-import { CurrencyPipe } from '@angular/common';
-import { SharedModule } from './shared/shared.module';
 
 import { CardComponent } from './basic/card/card.component';
 import { NavbarComponent } from './basic/navbar/navbar.component';
@@ -47,6 +43,7 @@ import { environment } from './model/environment';
 import { AuthService } from './auth/auth.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +53,6 @@ import { AuthService } from './auth/auth.service';
     DashboardComponent,
     SignupComponent,
     AuthComponent,
-    TransactionsComponent,
     CardBalanceComponent,
     ChartInOutComponent
   ],
@@ -64,10 +60,6 @@ import { AuthService } from './auth/auth.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ComponentsModule,
-    SharedModule,
-    ComponentsModule,
-    SharedModule,
     FontAwesomeModule,
     MatSlideToggleModule,
     MatCardModule,
@@ -91,8 +83,7 @@ import { AuthService } from './auth/auth.service';
     provideAnimations(),
     provideHttpClient(),
     importProvidersFrom(MatNativeDateModule),
-    AuthService,
-    CurrencyPipe
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
