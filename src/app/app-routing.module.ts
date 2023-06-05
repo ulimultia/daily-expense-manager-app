@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TransactionsComponent } from './pages/transactions/transactions.component';
 
+import { TransactionsComponent } from './pages/transactions/transactions.component';
+import { AuthComponent } from './auth/auth.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
+
+// router
 const routes: Routes = [
-  {path: '', component: TransactionsComponent},
-  {path: 'transactions', component: TransactionsComponent},
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: 'auth', component: AuthComponent },
+  { path: 'register', component: SignupComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'transactions', component: TransactionsComponent },
 ];
 
 @NgModule({

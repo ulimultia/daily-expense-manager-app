@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="container-logo">
+    <img class="logo-login" src=".\assets\iconsImg\unicorn.png" alt="">
+    <br>
+    <h1>Welcome to Dinero App!</h1>
+  </div>
+  <div class="container">
+    <mat-card class="mat-elevation-z4">
+      <mat-card-header>
+        <mat-card-title>
+          <!-- <h1>Hi! Welcome to Dinero App!</h1> -->
+          <h1>Login Here!</h1>
+        </mat-card-title>
+        <!-- <mat-card-subtitle>
+          Manage your personal finances here ...
+        </mat-card-subtitle> -->
+      </mat-card-header><br>
+      <mat-card-content>
+        <div class="formGroup">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput class="formControl" placeholder="example@mail.com" #userEmail required>
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="formGroup">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput class="formControl" [type]="hide ? 'password' : 'text'" placeholder="Enter your password" #userPassword required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="formGroup">
+          <button mat-raised-button class="btn-login-page" color="primary" value="Log in"
+            (click)="SignIn(userEmail.value, userPassword.value)">Sign In</button>
+        </div>
+        <div class="formGroup">
+          <p class="or"><span>Or</span></p>
+        </div>
+        <div class="formGroup">
+          <button mat-raised-button class="googleBtn btn-login-page" color="accent" (click)="GoogleAuth()">
+            <!-- <mat-icon>GooglePlus</mat-icon> -->
+            Log in with Google
+          </button>
+        </div><br>
+        <span>Don't have an account?<span class="redirect" routerLink="/register"> Sign Up</span></span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

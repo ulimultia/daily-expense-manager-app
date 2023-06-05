@@ -1,0 +1,52 @@
+.btn-login-page {
+  width: 600px;
+  max-width: 100%;
+}
+
+.container {
+  margin-block-start: 50px;
+  width: 650px;
+  max-width: 100%;
+  background-color: rgb(245, 245, 245);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.container-logo {
+  display: grid;
+  place-items: center;
+  margin-block-start: 10%;
+}
+
+.formGroup {
+  padding-bottom: 10px;
+}
+
+.formGroup .or {
+  margin-bottom: 0px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.logo-login {
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.mat-mdc-form-field {
+  width: 600px;
+  max-width: 100%;
+}
+
+.mat-card-title mat-typography h1 {
+  margin: 0 0 0px;
+}
+
+.redirect {
+  font-weight: bold;
+
+}
+
