@@ -1,0 +1,42 @@
+<app-card>
+    <div slot="header" class="period-tabs">
+        <mat-tab-group [selectedIndex]="1">
+            <mat-tab label="Last Month"></mat-tab>
+            <mat-tab label="This Month"></mat-tab>
+            <mat-tab label="Future"></mat-tab>
+        </mat-tab-group>
+    </div>
+    <div slot="content"> 
+        <div class="transaction">
+
+            <!-- START INFLOW AND OUTFLOW REPORT -->
+            <div class="inflow-outflow-report">
+                <table>
+                    <tr>
+                        <td>Inflow</td>
+                        <td class="amount inflow">{{inflow | rupiahPipe}}</td>
+                    </tr>
+                    <tr>
+                        <td>Outflow</td>
+                        <td class="amount outflow">{{outflow |rupiahPipe}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="amount total-balance">{{totalBalance | rupiahPipe}}</td>
+                    </tr>
+                </table>
+                <div class="report-link">
+                    <a routerLink="/report">VIEW REPORT FOR THIS PERIOD</a>
+                </div>
+            </div>
+            <!-- END INFLOW AND OUTFLOW REPORT -->
+
+            <!-- START TRANSACTION HISTORY -->
+            <div class="transaction-history">
+                <div class="transaction-separator"></div>
+                <app-transaction-history></app-transaction-history>
+            </div>
+            <!-- END TRANSACTION HISTORY -->
+        </div>
+    </div>
+</app-card>
