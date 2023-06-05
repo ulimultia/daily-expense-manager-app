@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'daily-expense-manager-app';
-  isSideNavOpen: boolean = true
-
-  openSideNav(){
-    this.isSideNavOpen = !this.isSideNavOpen
-  }
 }
