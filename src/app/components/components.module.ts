@@ -19,6 +19,7 @@ import { TransactionFormComponent } from './transaction/transaction-form/transac
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     SharedModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FormsModule,
+    SharedModule
   ],
   exports:[
     CardComponent,

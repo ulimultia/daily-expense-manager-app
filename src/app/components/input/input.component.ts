@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export type InputType = "text" | "number" | "category" | "date"
 export type InputAppearance = "fill" | "outline"
@@ -15,4 +15,7 @@ export class InputComponent {
   @Input() placeholder: string = "";
   @Input() min: number = 0;
   @Input() appearance: InputAppearance = "outline"
+  @Input() name: string = ""
+
+  @Output() valueChange = new EventEmitter<any>()
 }

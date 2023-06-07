@@ -19,7 +19,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ComponentsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [CurrencyPipe,KeyValuePipe],
   bootstrap: [AppComponent]
