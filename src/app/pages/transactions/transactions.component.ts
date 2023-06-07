@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../../models/Transaction';
+import { TransactionService } from 'src/app/services/transaction/transaction.service';
 
 @Component({
   selector: 'app-transactions',
@@ -7,39 +8,44 @@ import { Transaction } from '../../models/Transaction';
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit{
-  inflow: number = 1000000;
-  outflow: number = -500000;
-  totalBalance: number = 500000;
+  inflow: number = 0;
+  outflow: number = 0;
+  totalBalance: number = 0;
   showTransactions: any;
-  private transactions: Transaction[] = [
-    {
-      'category': "Transportation",
-      'amount': 500000,
-      'description': 'this is a transport description',
-      'date': new Date()
-    },
-    {
-      'category': "Food & Beverage",
-      'amount': -500000,
-      'description': 'this is a food description',
-      'date': new Date()
-    },
-    {
-      'category': "Food & Beverage",
-      'amount': -500000,
-      'description': 'this is a food description',
-      'date': new Date("2023-06-06")
-    }
-  ]
+  user: any = null;
+  isLoading: boolean = false;
+
+  private transactions: Transaction[] = []
   
+  constructor(private transactionService: TransactionService){}
 
   ngOnInit(): void {
-    this.filterTransaction()
+    this.isLoading = true
+    this.transactionService.getUser("lisa@gmail").valueChanges()
+    .subscribe((data) => {
+      if(data != null){
+        this.user = {...data} 
+        this.transactionService.user = {...data}
+        this.getUserTransaction()  
+        this.filterTransaction()
+      }
+      this.isLoading = false
+    });
+  }
+
+  getUserTransaction(){
+    if(this.user != null){
+      this.transactions = []
+      for (let index = 0; index < this.user.transactions.length; index++) {
+        const element = this.user.transactions[index];
+        this.transactions = [...this.transactions,({...element,'date': new Date(element.date)})]
+      }
+    }
   }
 
   filterTransaction(): void{
      //filter to show transactions
-     this.transactions = this.transactions.sort(
+    this.transactions = this.transactions.sort(
       (objA, objB) => objA.date.getTime() - objB.date.getTime(),
     )
     var temp: any = {};
@@ -49,7 +55,7 @@ export class TransactionsComponent implements OnInit{
         tempDate = transaction.date
         temp = {...temp, 
           [transaction.date.toDateString()]: {
-            'balance': transaction.amount,
+            'balance': +transaction.amount,
             'transactions': [{
               'category': transaction.category,
               'description': transaction.description,
@@ -60,7 +66,7 @@ export class TransactionsComponent implements OnInit{
       }else{
         temp = {...temp,
           [transaction.date.toDateString()]: {
-            'balance': temp[transaction.date.toDateString()].balance + transaction.amount,
+            'balance': +temp[transaction.date.toDateString()].balance + +transaction.amount,
             'transactions': [...temp[transaction.date.toDateString()].transactions, {
                 'category': transaction.category,
                 'description': transaction.description,
@@ -70,6 +76,13 @@ export class TransactionsComponent implements OnInit{
           }
         }
       }
+
+      if(transaction.amount > 0){
+        this.inflow += +transaction.amount
+      }else{
+        this.outflow += +transaction.amount
+      }
+      this.totalBalance = this.inflow - this.outflow
     });
     this.showTransactions = {...temp}
   }
@@ -78,3 +91,4 @@ export class TransactionsComponent implements OnInit{
     return this.showTransactions[key][data]
   }
 }
+

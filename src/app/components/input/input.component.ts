@@ -16,6 +16,7 @@ export class InputComponent {
   @Input() min: number = 0;
   @Input() appearance: InputAppearance = "outline"
   @Input() name: string = ""
+  @Input() readonly: boolean = false
 
   @Output() valueChange = new EventEmitter<any>()
 }

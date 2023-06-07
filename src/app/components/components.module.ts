@@ -20,6 +20,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { CategoryCardComponent } from './category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { FormsModule } from '@angular/forms';
     TransactionHistoryDetailComponent,
     TransactionHistoryHeaderComponent,
     TransactionFormComponent,
+    LoadingSpinnerComponent,
+    CategoryCardComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +59,8 @@ import { FormsModule } from '@angular/forms';
     SidenavComponent,
     MatTabsModule,
     TransactionHistoryDetailComponent,
-    TransactionHistoryHeaderComponent
+    TransactionHistoryHeaderComponent,
+    LoadingSpinnerComponent
   ]
 })
 export class ComponentsModule { }

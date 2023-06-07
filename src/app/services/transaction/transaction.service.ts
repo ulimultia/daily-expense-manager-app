@@ -12,17 +12,23 @@ import {
 export class TransactionService {
   usersRef!: AngularFireList<any>;
   userRef!: AngularFireObject<any>;
+  user: any = {
+    'name': "",
+    'balance': 0,
+    "transactions": []
+  };
   constructor(private db: AngularFireDatabase) {}
 
   createTransaction(transaction: Transaction, email: string,date: Date){
-    const data = {
+    const userData = {
       "name": "lisa",
-      "balance": 100000,
+      "balance": +this.user.balance + +transaction.amount,
       "transactions": [
+        ...this.user.transactions,
         {...transaction,"date": date.toDateString()},
       ]
     }
-    this.db.database.ref().child(`users/${email}`).set(data)
+    this.db.database.ref().child(`users/${email}`).set(userData)
   }
 
   getUser(email: string){

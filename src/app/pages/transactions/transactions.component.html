@@ -33,14 +33,20 @@
 
             <!-- START TRANSACTION HISTORY -->
             <div class="transaction-history">
-                <div *ngFor="let transaction of showTransactions | keyvalue">
+                <div *ngIf="isLoading" class="loading">
                     <div class="transaction-separator"></div>
-                    <div class="transaction-history-container">
-                        <app-transaction-history-header [transactionDate]="transaction.key" [balance]="getData(transaction.key,'balance')"></app-transaction-history-header>
-                        <hr>
-                        <div class="transaction-history-list">
-                            <div *ngFor="let item of getData(transaction.key,'transactions')">
-                                <app-transaction-history-detail [transaction]="item"></app-transaction-history-detail>
+                    <app-loading-spinner></app-loading-spinner>
+                </div>
+                <div *ngIf="!isLoading">
+                    <div *ngFor="let transaction of showTransactions | keyvalue">
+                        <div class="transaction-separator"></div>
+                        <div class="transaction-history-container">
+                            <app-transaction-history-header [transactionDate]="transaction.key" [balance]="getData(transaction.key,'balance')"></app-transaction-history-header>
+                            <hr>
+                            <div class="transaction-history-list">
+                                <div *ngFor="let item of getData(transaction.key,'transactions')">
+                                    <app-transaction-history-detail [transaction]="item"></app-transaction-history-detail>
+                                </div>
                             </div>
                         </div>
                     </div>
