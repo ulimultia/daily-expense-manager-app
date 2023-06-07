@@ -1,16 +1,18 @@
 <div class="sidebar-container" [class.sidebar-is-mobile]="sidebarQuery.matches">
   <mat-toolbar color="primary" class="sidebar-toolbar">
     <div class="row">
-      <div class="col-2">
+      <div class="col-xs-12 col-md-2">
         <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       </div>
-      <div class="col-8">
+      <div class="col-xs-12 col-md-8">
         <h1 class="sidebar-app-name">Daily Expense Manager</h1>
       </div>
-      <div class="col-2" *ngIf="authService.userData">
-        <button mat-icon-button (click)="authService.SignOut()">
-            <mat-icon class="mat-18" >logout</mat-icon>
-        </button>
+      <div class="col-xs-12 col-md-2" *ngIf="user">
+        <p style="text-align: right;">
+          <button mat-icon-button (click)="authService.SignOut()">
+              <mat-icon class="mat-18" >logout</mat-icon>
+          </button>
+        </p>
       </div>
     </div>
   </mat-toolbar>
@@ -19,7 +21,7 @@
       <mat-nav-list *ngIf="authService.userData">
         <a mat-list-item class="nav-link" routerLink="/profile">Profile</a>
         <a mat-list-item class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a mat-list-item class="nav-link" routerLink="/transaction">Transactions</a>
+        <a mat-list-item class="nav-link" routerLink="/transactions">Transactions</a>
         <a mat-list-item class="nav-link" routerLink="/category">Category</a>
         <a mat-list-item class="nav-link" routerLink="/report">Report</a>
       </mat-nav-list>

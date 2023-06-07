@@ -2,7 +2,7 @@
   <div class="container-logo">
     <img class="logo-login" src=".\assets\iconsImg\unicorn.png" alt="">
     <br>
-    <h1>Welcome to Dinero App!</h1>
+    <h1>Welcome to Daily Expense Manager App!</h1>
   </div>
   <div class="container">
     <mat-card class="mat-elevation-z4">
@@ -21,7 +21,7 @@
             <mat-label>Email</mat-label>
             <input matInput class="formControl" placeholder="example@mail.com" #userEmail required>
             <mat-icon matSuffix>email</mat-icon>
-            <mat-hint>Hint</mat-hint>
+            <!-- <mat-hint>Hint</mat-hint> -->
           </mat-form-field>
         </div>
         <div class="formGroup">
@@ -31,7 +31,7 @@
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-hint>Hint</mat-hint>
+            <!-- <mat-hint>Hint</mat-hint> -->
           </mat-form-field>
         </div>
         <div class="formGroup">

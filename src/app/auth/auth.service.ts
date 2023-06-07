@@ -27,8 +27,9 @@ import * as auth from 'firebase/auth';
 export class AuthService {
 
   public userData: any;
-  private obs = new BehaviorSubject<any>({});
-  userObs = this.obs.asObservable();
+
+  // private obs = new BehaviorSubject<any>({});
+  // userObs = this.obs.asObservable();
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -41,18 +42,40 @@ export class AuthService {
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
       if (user) {
-        this.userData = user;
+        this.userData = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          emailVerified: user.emailVerified,
+        };
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
+        console.log("1 ", this.userData);
+
       } else {
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
+        console.log("2 ", user);
       }
     });
   }
 
-
-
+  getUser() {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        return this.userData = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          emailVerified: user.emailVerified,
+        };
+      } else {
+        return null;
+      }
+    });
+  }
 
   // Sign in with email/password
   async signInService(email: string, password: string) {
@@ -159,6 +182,7 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
+
     this.userData = {
       uid: user.uid,
       email: user.email,
@@ -166,7 +190,7 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
-    console.log(this.userData);
+    // console.log(this.userData);
 
     return userRef.set(this.userData, {
       merge: true,

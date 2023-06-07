@@ -26,10 +26,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatNativeDateModule } from '@angular/material/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor} from '@angular/common';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { provideHttpClient } from '@angular/common/http';
 
 // Firebase Auth
@@ -41,6 +41,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from './model/environment';
 import { AuthService } from './auth/auth.service';
+import { FormsModule } from '@angular/forms';
+import { ReportComponent } from './report/report.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { PieChartComponent } from './basic/pie-chart/pie-chart.component';
 
 
 
@@ -54,10 +58,14 @@ import { AuthService } from './auth/auth.service';
     SignupComponent,
     AuthComponent,
     CardBalanceComponent,
-    ChartInOutComponent
+    ChartInOutComponent,
+    ReportComponent,
+    TransactionsComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
@@ -72,12 +80,12 @@ import { AuthService } from './auth/auth.service';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
+    NgxChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    CanvasJSAngularChartsModule,
   ],
   providers: [
     provideAnimations(),

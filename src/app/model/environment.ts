@@ -1,10 +1,10 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
+    apiKey: "AIzaSyBn8_mwDPtWXIROndgqV9ze_cVWEKCFz00",
+    authDomain: "angular-training-834e1.firebaseapp.com",
+    databaseURL: "https://angular-training-834e1-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    projectId: "angular-training-834e1",
   }
 };
 

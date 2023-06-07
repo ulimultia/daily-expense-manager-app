@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h1>Income & Expense This Month</h1>
+    </div>
+    <div class="col-xs-12 col-md-6" style="float: right;">
+    </div>
+  </div>
+  <app-chart-in-out
+    [loadTxn]="txnThisMonth">
+  </app-chart-in-out>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <app-pie-chart
+        [customColor]="pieColorIncome"
+        [dataChart]="listIncome">
+      </app-pie-chart>
+    </div>
+    <div class="col-xs-12 col-md-6" style="float: right;">
+      <app-pie-chart
+        [customColor]="pieColorExpense"
+        [dataChart]="listExpense">
+      </app-pie-chart>
+    </div>
+  </div>
+
+</div>
+
