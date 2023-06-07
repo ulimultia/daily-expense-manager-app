@@ -50,6 +50,9 @@ export class TransactionsComponent implements OnInit{
     )
     var temp: any = {};
     var tempDate = new Date(0,0,0,0)
+    this.inflow = 0
+    this.outflow = 0
+    this.totalBalance = 0
     this.transactions.forEach(transaction => {
       if(transaction.date.toDateString() != tempDate.toDateString()){
         tempDate = transaction.date
@@ -76,7 +79,7 @@ export class TransactionsComponent implements OnInit{
           }
         }
       }
-
+      
       if(transaction.amount > 0){
         this.inflow += +transaction.amount
       }else{
