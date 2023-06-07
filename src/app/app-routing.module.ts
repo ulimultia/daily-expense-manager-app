@@ -1,11 +1,12 @@
-import { TransactionsComponent } from './transactions/transactions.component';
+// import { TransactionsComponent } from './transactions/transactions.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './auth/auth.guard';
-import { ReportComponent } from './report/report.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthGuard } from './pages/auth/auth.guard';
+import { ReportComponent } from './pages/report/report.component';
+import { TransactionsComponent } from './pages/transactions/transactions.component';
 
 // router
 const routes: Routes = [

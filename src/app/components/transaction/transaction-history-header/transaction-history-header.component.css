@@ -1,0 +1,23 @@
+.header{
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: 10% 60% 30%;
+}
+
+.date{
+    font-size: 2.2rem;
+}
+
+.day, .month{
+    width: 100%;
+    color: rgba(0,0,0,0.6);
+}
+
+.day{
+    font-weight: bold;
+}
+
+.balance{
+    text-align: right;
+    font-weight: bold;
+}

@@ -1,0 +1,16 @@
+<ng-container *ngIf="type != 'date'; else inputDate">
+    <mat-form-field [appearance]="appearance">
+        <mat-label>{{label}}</mat-label>
+        <input matInput [readonly]="readonly" [type]="type" [min]="min" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)" [placeholder]="placeholder" [name]="name">
+    </mat-form-field>
+</ng-container>
+
+<ng-template #inputDate>
+    <mat-form-field [appearance]="appearance">
+        <mat-label>{{label}}</mat-label>
+        <input [readonly]="readonly" matInput [matDatepicker]="picker" [name]="name" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</ng-template>
+

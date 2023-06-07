@@ -1,0 +1,8 @@
+<div class="transaction-details">
+    <app-icon [width]="60" [height]="60" [icon]="transaction.category"></app-icon>
+    <div>
+        <div class="category">{{transaction.category}}</div>
+        <div class="desc">{{transaction.description}}</div>
+    </div>
+    <span class="amount" [ngClass]="transaction.amount < 0 ? 'expense' : 'income'">{{transaction.amount | rupiahPipe}}</span>
+</div>
