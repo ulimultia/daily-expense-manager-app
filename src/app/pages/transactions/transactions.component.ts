@@ -83,9 +83,9 @@ export class TransactionsComponent implements OnInit{
       if(transaction.amount > 0){
         this.inflow += +transaction.amount
       }else{
-        this.outflow -= +transaction.amount
+        this.outflow += +transaction.amount
       }
-      this.totalBalance = this.inflow - this.outflow
+      this.totalBalance = this.inflow + this.outflow
     });
     this.showTransactions = {...temp}
   }
